@@ -9,7 +9,12 @@
   background: #e8e8e8;
   border-radius: 4px;
   padding: 5px;
-  max-width: 400px;
+  margin: auto;
+  max-width: 500px;
+}
+
+.todo-title {
+  text-align: center;
 }
 
 .task {

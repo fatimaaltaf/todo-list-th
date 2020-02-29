@@ -1,67 +1,70 @@
-import React, {useState} from 'react';
-import './App.css';
-import Form from './components/Form';
-import TaskList from './components/TaskList'
+import React, { useState } from "react";
+import "./App.css";
+import Form from "./components/Form";
+import Task from "./components/Task";
 
 function App() {
-
   const [taskList, setTaskList] = useState([
-      { text: "Learn about React",
-        description: "TEST",
-        isCompleted: false
-     },
-      { text: "Meet friend for lunch",
-      description: "",
+    {
+      title: "Learn about React",
+      description: "TEST",
+      startDate: new Date(),
       isCompleted: false
-     },
-      { text: "Build really cool todo app",
-      description: "",
+    },
+    {
+      title: "Meet friend for lunch",
+      description: "TEST2",
+      startDate: new Date(),
+      isCompleted: false
+    },
+    {
+      title: "Build really cool todo app",
+      description: "3",
+      startDate: new Date(),
       isCompleted: false
     }
-  ])
+  ]);
 
-  // Allows to add new task
-  const addTask = (text, description) => {
-    const newTask = [...taskList, {text, description}]
-    setTaskList(newTask)
-  }
+  // Add a new task to array
+  const addTask = (title, description, startDate) => {
+    const newTask = [...taskList, { title, description, startDate }];
+    setTaskList(newTask);
+  };
 
-  // Allows to select task as completed
-  const completedTask = index => {
-    const newTask = [...taskList]
+  // Toggle isCompleted status for task
+  const completeTask = index => {
+    const newTask = [...taskList];
     newTask[index].isCompleted = true;
-    setTaskList(newTask)
-  }
+    setTaskList(newTask);
+  };
 
-  // Allows to remove/delete task
+  // Removes a task for array
   const deleteTask = index => {
     const newTask = [...taskList];
     newTask.splice(index, 1);
     setTaskList(newTask);
   };
 
-  // Clear all tasks from list
+  // Clears all tasks from array
   const clearTaskList = () => {
     setTaskList([]);
-  }
+  };
 
   return (
     <div className="App">
-      <div>
-      </div>
+      <h1 className="todo-title">To Do List</h1>
       <div className="task-list">
-        <p>Tasks</p>
-        <Form addTask={addTask} />
-       {taskList.map((task, index) => (
-        <TaskList
-          key={index}
-          index={index}
-          task={task}
-          completedTask={completedTask}
-          deleteTask={deleteTask}
-        />
+        <Form addTask={addTask}/>
+        {taskList.map((task, index) => (
+          <Task
+            key={index}
+            index={index}
+            task={task}
+            completeTask={completeTask}
+            deleteTask={deleteTask}
+          />
         ))}
-        <button onSubmit={clearTaskList}>Clear All Tasks</button>
+        <button onClick={clearTaskList}>Clear All Tasks</button>
       </div>
     </div>
   );

@@ -1,76 +1,47 @@
-import React, {useState} from 'react';
-// import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
-// import MomentUtils from "@date-io/moment";
-// import Calendar from 'react-calendar';
-import DatePicker from 'react-date-picker';
+import React, { useState } from "react";
+import "./Form.css";
+import DatePicker from "react-date-picker";
 
 export default function Form(props) {
+  const { addTask } = props;
 
-const { addTask } = props; 
+  const [title, setTitle] = useState(""); //set default title to empty
+  const [description, setDescription] = useState(""); //set default desc to empty
+  const [startDate, setStartDate] = useState(new Date()); //set default date to today
 
-  // const [value, setValue] = useState("");
-
-  const [title, setTitle] = useState(props.title || "")
-  const [description, setDescription] = useState(props.description || "")
-  const [startDate, setStartDate] = useState(new Date());
-  const [error, setError] = useState("")
- 
-  const handleTitle = event => {
-    setTitle(event.preventDefault());
-  }
-
-  const handleDescription = event => {
-    setDescription(event.preventDefault());
-  }
-
-  const formHandleSubmit = event => {
+  const handleSubmit = event => {
     event.preventDefault();
-    // if (!value) return;
-    // addTask(value);
-    // setValue("");
 
-    let task = {
-      id: Math.floor(Math.random() * 100),
-      title: event.target.title.value,
-      description: event.target.description.value,
-      isCompleted: false,
-      dueBy: startDate
-    }
+    //validayion fnanfnao
+    if (!title || !description || !startDate) {
+      alert("Please fill out all fields");
+      return;
+    } 
 
-    if (!task) {
-      addTask(prevTask => [...prevTask, task])
-    }
-
-    if (task.title === "" || task.description === "") {
-      setError("Cannot leave title or description blank")
-    }
-
-    setTitle("");
-    setDescription("");
+    //call prop
+    addTask(title, description, startDate);
+    
   };
 
   return (
-    <form className="Form">
+    <form className="Form" onSubmit={handleSubmit}>
       <span>Title:</span>
-      <input 
-        type="text" 
-        value={title} 
+      <input
+        type="text"
+        value={title}
         name="Title"
-        onChange={handleTitle}
-        />
+        onChange={event => setTitle(event.target.value)}
+      />
       <span>Description:</span>
-      <input 
-        type="text" 
-        value={description} 
+      <input
+        type="text"
+        value={description}
         name="Description"
-        onChange={handleDescription}
-        />
+        onChange={event => setDescription(event.target.value)}
+      />
       <span>Due By:</span>
-      <DatePicker
-       value={startDate}
-       onChange={setStartDate} 
-       />
-      <button onSubmit={formHandleSubmit}>Add Task</button>
+      <DatePicker value={startDate} onChange={date => setStartDate(date)} />
+      <button type="submit">Add Task</button>
     </form>
   );
 }

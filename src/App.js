@@ -38,9 +38,6 @@ function App() {
     setTaskList(newTask);
   };
 
-  // Edit Tasks
-
-
   // Clear all tasks from list
   const clearTaskList = () => {
     setTaskList([]);

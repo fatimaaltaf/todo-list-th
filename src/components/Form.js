@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 // import { DatePicker, MuiPickersUtilsProvider } from "@material-ui/pickers";
 // import MomentUtils from "@date-io/moment";
-import Calendar from 'react-calendar';
-
+// import Calendar from 'react-calendar';
+import DatePicker from 'react-date-picker';
 
 export default function Form(props) {
 
@@ -12,7 +12,7 @@ const { addTask } = props;
 
   const [title, setTitle] = useState(props.title || "")
   const [description, setDescription] = useState(props.description || "")
-  const [date, setDate] = useState(new Date());
+  const [startDate, setStartDate] = useState(new Date());
   const [error, setError] = useState("")
  
   const handleTitle = event => {
@@ -34,7 +34,11 @@ const { addTask } = props;
       title: event.target.title.value,
       description: event.target.description.value,
       isCompleted: false,
-      dueBy: date
+      dueBy: startDate
+    }
+
+    if (!task) {
+      addTask(prevTask => [...prevTask, task])
     }
 
     if (task.title === "" || task.description === "") {
@@ -62,14 +66,10 @@ const { addTask } = props;
         onChange={handleDescription}
         />
       <span>Due By:</span>
-      {/* <MuiPickersUtilsProvider utils={MomentUtils}> */}
-      <Calendar
-        label="Calendar"
-        value={date}
-        onChange={setDate}
-        animateYearScrolling
-      />
-      {/* </MuiPickersUtilsProvider> */}
+      <DatePicker
+       value={startDate}
+       onChange={setStartDate} 
+       />
       <button onSubmit={formHandleSubmit}>Add Task</button>
     </form>
   );

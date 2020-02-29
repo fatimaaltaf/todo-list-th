@@ -13,11 +13,11 @@ function TaskList(props) {
       <section>{task.title}</section>
       <section>{task.description}</section>
       {task.isCompleted ? (
-              <p className="pending">PENDING</p>
+              <p className="pending">Pending</p>
             ) : (
-              <p className="completed">COMPLETED!</p>
-            )} }
-      <section className="finishBy">Due By:</section>
+              <p className="completed">Complete!</p>
+            )}
+      <section className="dueBy">Due By:</section>
             {moment(task.dueBy).format("MMM Do YY")}
       <div>
         <button onClick={() => completeTask(index)}>Complete</button>

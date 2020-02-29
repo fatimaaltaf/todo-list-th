@@ -7,20 +7,22 @@ function App() {
 
   const [taskList, setTaskList] = useState([
       { text: "Learn about React",
-        description: "",
+        description: "TEST",
         isCompleted: false
      },
       { text: "Meet friend for lunch",
+      description: "",
       isCompleted: false
      },
       { text: "Build really cool todo app",
+      description: "",
       isCompleted: false
     }
   ])
 
   // Allows to add new task
-  const addTask = (text) => {
-    const newTask = [...taskList, {text}]
+  const addTask = (text, description) => {
+    const newTask = [...taskList, {text, description}]
     setTaskList(newTask)
   }
 
@@ -59,6 +61,7 @@ function App() {
           deleteTask={deleteTask}
         />
         ))}
+        <button onSubmit={clearTaskList}>Clear All Tasks</button>
       </div>
     </div>
   );

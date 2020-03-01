@@ -39,18 +39,20 @@ export default function Form(props) {
         name="Description"
         onChange={event => setDescription(event.target.value)}
       />
-      <label>
-        Pick a category:
-        <select
-          category={category}
-          onChange={event => setCategory(event.target.value)}
-        >
-          <option category="work">Work</option>
-          <option category="social">Social</option>
-          <option category="home">Home</option>
-          <option category="school">School</option>
-        </select>
-      </label>
+      <div className="form-category">
+        <label>
+          Pick a category:
+          <select
+            category={category}
+            onChange={event => setCategory(event.target.value)}
+          >
+            <option category="work">Work</option>
+            <option category="social">Social</option>
+            <option category="home">Home</option>
+            <option category="school">School</option>
+          </select>
+        </label>
+      </div>
       <span>Due By:</span>
       <DatePicker value={startDate} onChange={date => setStartDate(date)} />
       <button className="add-task" type="submit">

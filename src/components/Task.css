@@ -22,3 +22,16 @@
   margin-right: 8px;
   margin-bottom: 6px;
 }
+
+.category {
+    display: block;
+    line-height: 25px;
+
+    -moz-border-radius: 30px; /* or 50% */
+    border-radius: 30px; /* or 50% */
+
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    font-size: 12px;
+}

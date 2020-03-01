@@ -36,8 +36,12 @@ function Task(props) {
         {moment(task.startDate).format("MMM Do YYYY")}
       </div>
       <div className="complete-delete">
-        <button onClick={() => completeTask(index)}>Complete</button>
-        <button onClick={() => deleteTask(index)}>Delete</button>
+        <button className="complete" onClick={() => completeTask(index)}>
+          Complete
+        </button>
+        <button className="delete" onClick={() => deleteTask(index)}>
+          Delete
+        </button>
       </div>
     </div>
   );

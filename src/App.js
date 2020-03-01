@@ -9,14 +9,15 @@ function App() {
     {
       title: "Meet friend for lunch",
       description: "Coffee at Dark Horse",
+      category: "Social",
       startDate: new Date(),
       isCompleted: false
     }
   ]);
 
   // Add a new task to array
-  const addTask = (title, description, startDate) => {
-    const newTask = [...taskList, { title, description, startDate }];
+  const addTask = (title, description, category, startDate) => {
+    const newTask = [...taskList, { title, description, category, startDate }];
     setTaskList(newTask);
   };
 

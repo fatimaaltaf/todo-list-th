@@ -11,8 +11,14 @@
 }
 
 .task-title-desc {
-  display: flex;
-  align-items: left;
-  justify-content: space-between;
-  flex-direction: column;
+  text-align: center;
+}
+
+.complete-delete {
+  margin-top: 10px;
+}
+
+.complete {
+  margin-right: 8px;
+  margin-bottom: 6px;
 }

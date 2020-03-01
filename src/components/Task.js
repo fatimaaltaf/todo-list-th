@@ -31,7 +31,7 @@ function Task(props) {
         <p>Task: {task.title}</p>
         <p>Description: {task.description}</p>
       </div>
-      <p className="category">{task.category}</p>
+      <p className="task-category">{task.category}</p>
       <div className="dueBy">
         Due By:
         {moment(task.startDate).format("MMM Do YYYY")}

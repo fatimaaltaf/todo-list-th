@@ -21,9 +21,14 @@
 .complete {
   margin-right: 8px;
   margin-bottom: 6px;
+  border-radius: 4px;
 }
 
-.category {
+.delete {
+  border-radius: 4px;
+}
+
+.task-category {
     display: block;
     line-height: 25px;
 

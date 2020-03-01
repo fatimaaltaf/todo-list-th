@@ -15,7 +15,7 @@ export default function Form(props) {
     event.preventDefault();
 
     //Error handling
-    if (!title || !description || !category || !startDate) {
+    if (!title || !description || !startDate) {
       alert("Please fill out all fields");
       return;
     }

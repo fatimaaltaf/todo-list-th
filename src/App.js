@@ -35,7 +35,7 @@ function App() {
     setTaskList(newTask);
   };
 
-  // Removes a task for array
+  // Removes a task from array
   const deleteTask = index => {
     const newTask = [...taskList];
     newTask.splice(index, 1);

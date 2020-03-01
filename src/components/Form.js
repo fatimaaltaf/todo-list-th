@@ -10,10 +10,11 @@ export default function Form(props) {
   const [startDate, setStartDate] = useState(new Date()); //set default date to today
   const [category, setCategory] = useState();
 
+  //Handles form onSubmit
   const handleSubmit = event => {
     event.preventDefault();
 
-    //validayion fnanfnao
+    //Error handling
     if (!title || !description || !category || !startDate) {
       alert("Please fill out all fields");
       return;

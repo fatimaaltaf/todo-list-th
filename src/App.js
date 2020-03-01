@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import Task from "./components/Task";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   const [taskList, setTaskList] = useState([
@@ -54,7 +55,7 @@ function App() {
     <div className="App">
       <h1 className="todo-title">To Do List</h1>
       <div className="task-list">
-        <Form addTask={addTask}/>
+        <Form addTask={addTask} />
         {taskList.map((task, index) => (
           <Task
             key={index}

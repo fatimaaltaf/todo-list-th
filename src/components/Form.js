@@ -16,15 +16,14 @@ export default function Form(props) {
     if (!title || !description || !startDate) {
       alert("Please fill out all fields");
       return;
-    } 
+    }
 
     //call prop
     addTask(title, description, startDate);
-    
   };
 
   return (
-    <form className="Form" onSubmit={handleSubmit}>
+    <form className="form" onSubmit={handleSubmit}>
       <span>Title:</span>
       <input
         type="text"
@@ -41,7 +40,9 @@ export default function Form(props) {
       />
       <span>Due By:</span>
       <DatePicker value={startDate} onChange={date => setStartDate(date)} />
-      <button type="submit">Add Task</button>
+      <button className="add-task" type="submit">
+        Add Task
+      </button>
     </form>
   );
 }

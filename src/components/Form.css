@@ -1,3 +1,10 @@
 .form {
   margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.add-task {
+  margin-top: 20px;
 }

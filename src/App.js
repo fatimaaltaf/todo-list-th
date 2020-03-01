@@ -7,20 +7,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [taskList, setTaskList] = useState([
     {
-      title: "Learn about React",
-      description: "TEST",
-      startDate: new Date(),
-      isCompleted: false
-    },
-    {
       title: "Meet friend for lunch",
-      description: "TEST2",
-      startDate: new Date(),
-      isCompleted: false
-    },
-    {
-      title: "Build really cool todo app",
-      description: "3",
+      description: "Coffee at Dark Horse",
       startDate: new Date(),
       isCompleted: false
     }
@@ -54,8 +42,10 @@ function App() {
   return (
     <div className="App">
       <h1 className="todo-title">To Do List</h1>
-      <div className="task-list">
+      <div className="task-list-section">
         <Form addTask={addTask} />
+      </div>
+      <div className="task-list">
         {taskList.map((task, index) => (
           <Task
             key={index}
@@ -65,8 +55,10 @@ function App() {
             deleteTask={deleteTask}
           />
         ))}
-        <button onClick={clearTaskList}>Clear All Tasks</button>
       </div>
+      <button className="clear-task" onClick={clearTaskList}>
+        Clear All Tasks
+      </button>
     </div>
   );
 }

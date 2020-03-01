@@ -47,10 +47,10 @@ export default function Form(props) {
             category={category}
             onChange={event => setCategory(event.target.value)}
           >
-            <option category="work">Work</option>
-            <option category="social">Social</option>
-            <option category="home">Home</option>
-            <option category="school">School</option>
+            <option category="work">Home</option>
+            <option category="social">School</option>
+            <option category="home">Social</option>
+            <option category="school">Work</option>
           </select>
         </label>
       </div>

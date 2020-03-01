@@ -3,7 +3,7 @@ import moment from "moment";
 import "./Task.css";
 
 function Task(props) {
-  const { task, index, completeTask, deleteTask } = props;
+  const { task, index, completeTask, incompleteTask, deleteTask } = props;
 
   return (
     <div className="task">
@@ -37,9 +37,15 @@ function Task(props) {
         {moment(task.startDate).format("MMM Do YYYY")}
       </div>
       <div className="complete-delete">
-        <button className="complete" onClick={() => completeTask(index)}>
-          Complete
-        </button>
+        {!task.isCompleted ? (
+          <button className="complete" onClick={() => completeTask(index)}>
+            Complete
+          </button>
+        ) : (
+          <button className="complete" onClick={() => incompleteTask(index)}>
+            Incomplete
+          </button>
+        )}
         <button className="delete" onClick={() => deleteTask(index)}>
           Delete
         </button>

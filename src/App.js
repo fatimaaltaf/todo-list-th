@@ -21,10 +21,17 @@ function App() {
     setTaskList(newTask);
   };
 
-  // Toggle isCompleted status for task
+  // Toggle isCompleted status for task to complete
   const completeTask = index => {
     const newTask = [...taskList];
     newTask[index].isCompleted = true;
+    setTaskList(newTask);
+  };
+
+  // Toggle isCompleted status for task to incomplete
+  const incompleteTask = index => {
+    const newTask = [...taskList];
+    newTask[index].isCompleted = false;
     setTaskList(newTask);
   };
 
@@ -53,6 +60,7 @@ function App() {
             index={index}
             task={task}
             completeTask={completeTask}
+            incompleteTask={incompleteTask}
             deleteTask={deleteTask}
           />
         ))}

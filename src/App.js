@@ -7,9 +7,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function App() {
   const [taskList, setTaskList] = useState([
     {
-      title: "Meet friend for lunch",
-      description: "Coffee at Dark Horse",
-      category: "Social",
+      title: "Interview Fatima A",
+      description:
+        "Junior Developer with a passion for changing lives through tech",
+      category: "Work",
       startDate: new Date(),
       isCompleted: false
     }

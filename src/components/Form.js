@@ -17,11 +17,16 @@ export default function Form(props) {
 
     //Error handling
     if (!title || !startDate) {
-      alert("Please fill out all fields");
+      alert("Please fill out Title and Date");
       return;
     }
     //call prop
     addTask(title, description, category, startDate);
+
+    // Reset form fields
+    setTitle("");
+    setDescription("");
+    setStartDate(new Date());
   };
 
   return (
@@ -29,12 +34,14 @@ export default function Form(props) {
       <span>Title:</span>
       <input
         type="text"
+        value={title}
         name="Title"
         onChange={event => setTitle(event.target.value)}
       />
       <span>Description:</span>
       <input
         type="text"
+        value={description}
         name="Description"
         onChange={event => setDescription(event.target.value)}
       />

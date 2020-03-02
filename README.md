@@ -6,7 +6,7 @@ This is a simple To Do list made in React JS. You can add to your tasks a title,
 
 ## App Showcase
 
-!["Showcase of App"]
+!["Showcase of App"](https://github.com/fatimaaltaf/todo-list-th/blob/master/public/assets/app_demonstration.gif)
 
 ## Instructions
 

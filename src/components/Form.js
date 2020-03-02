@@ -5,7 +5,14 @@ import DatePicker from "react-date-picker";
 export default function Form(props) {
   const { addTask } = props;
 
-  const categoryOptions = ["home", "work", "school", "social"];
+  const categoryOptions = [
+    "Chores",
+    "Groceries",
+    "Outing",
+    "School",
+    "Shopping",
+    "Work"
+  ];
   const [title, setTitle] = useState(""); //set default title to empty
   const [description, setDescription] = useState(""); //set default desc to empty
   const [startDate, setStartDate] = useState(new Date()); //set default date to today

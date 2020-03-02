@@ -59,17 +59,22 @@ function App() {
       <div className="task-list-section">
         <Form addTask={addTask} />
       </div>
-      <div className="task-list">
-        {taskList.map((task, index) => (
-          <Task
-            key={index}
-            index={index}
-            task={task}
-            completeTask={completeTask}
-            incompleteTask={incompleteTask}
-            deleteTask={deleteTask}
-          />
-        ))}
+      <div className="task-list" style={{ display: !Task ? "none" : "block" }}>
+        <h3 className="tasks-card-title">Tasks</h3>
+        {taskList.length ? (
+          taskList.map((task, index) => (
+            <Task
+              key={index}
+              index={index}
+              task={task}
+              completeTask={completeTask}
+              incompleteTask={incompleteTask}
+              deleteTask={deleteTask}
+            />
+          ))
+        ) : (
+          <h3>Please add a task</h3>
+        )}
       </div>
       <button className="clear-task" onClick={clearTaskList}>
         Clear All Tasks

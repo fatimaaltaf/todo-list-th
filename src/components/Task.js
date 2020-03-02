@@ -7,7 +7,6 @@ function Task(props) {
 
   return (
     <div>
-      <h3 className="tasks-card-title">Tasks</h3>
       <div className="task">
         <div className="pending-complete">
           {!task.isCompleted ? (
@@ -31,11 +30,13 @@ function Task(props) {
           style={{ textDecoration: task.isCompleted ? "line-through" : "" }}
         >
           <p>Task:&nbsp;{task.title}</p>
-          <p>Description:&nbsp;{task.description}</p>
         </div>
+        <p style={{ display: !task.description ? "none" : "block" }}>
+          Description:&nbsp;{task.description}
+        </p>
         <p
           className="task-category"
-          style={{ display: task.category === "none" ? "none" : "block" }}
+          style={{ display: !task.category ? "none" : "block" }}
         >
           {task.category}
         </p>

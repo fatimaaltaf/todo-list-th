@@ -5,21 +5,21 @@ import DatePicker from "react-date-picker";
 export default function Form(props) {
   const { addTask } = props;
 
+  const categoryOptions = ["home", "work", "school", "social"];
   const [title, setTitle] = useState(""); //set default title to empty
   const [description, setDescription] = useState(""); //set default desc to empty
   const [startDate, setStartDate] = useState(new Date()); //set default date to today
-  const [category, setCategory] = useState();
+  const [category, setCategory] = useState(categoryOptions[0]);
 
   //Handles form onSubmit
   const handleSubmit = event => {
     event.preventDefault();
 
     //Error handling
-    if (!title || !description || !startDate) {
+    if (!title || !startDate) {
       alert("Please fill out all fields");
       return;
     }
-
     //call prop
     addTask(title, description, category, startDate);
   };
@@ -29,29 +29,24 @@ export default function Form(props) {
       <span>Title:</span>
       <input
         type="text"
-        value={title}
         name="Title"
         onChange={event => setTitle(event.target.value)}
       />
       <span>Description:</span>
       <input
         type="text"
-        value={description}
         name="Description"
         onChange={event => setDescription(event.target.value)}
       />
       <div className="form-category">
         <label>
           Pick a category:&nbsp;
-          <select
-            value={category}
-            onChange={event => setCategory(event.target.value)}
-          >
-            <option value="work">Home</option>
-            <option value="social">School</option>
-            <option value="home">Social</option>
-            <option value="school">Work</option>
-            <option value="none">None</option>
+          <select onChange={event => setCategory(event.target.value)}>
+            {categoryOptions.map(category => (
+              <option value={category}>{category}</option>
+            ))}
+            {/* Adding none option */}
+            <option value="">none</option>
           </select>
         </label>
       </div>

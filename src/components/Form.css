@@ -1,9 +1,9 @@
 .form {
+  font-family: 'Open Sans';
   margin: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-
 }
 
 .add-task {

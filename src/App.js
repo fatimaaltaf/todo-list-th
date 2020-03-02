@@ -49,7 +49,13 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="todo-title">To Do List</h1>
+      <h1 className="todo-title">
+        <img
+          alt="to do list with heart"
+          src="https://img.icons8.com/plasticine/80/000000/wish-list.png"
+        ></img>
+        To Do List
+      </h1>
       <div className="task-list-section">
         <Form addTask={addTask} />
       </div>

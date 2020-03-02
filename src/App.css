@@ -6,6 +6,7 @@
 }
 
 .task-list-section {
+  font-family: 'Open Sans';
   background: #e8e8e8;
   border-radius: 4px;
   padding: 5px;
@@ -24,7 +25,7 @@
 
 .todo-title {
   text-align: center;
-
+  font-family: 'Bungee';
 }
 
 .clear-task {

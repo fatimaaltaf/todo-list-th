@@ -1,9 +1,6 @@
-/* html, body, #app, #app > div {
-  height: 100% !important;
-} */
-
 .App {
   background: #209cee;
+  height: 200vh;
 }
 
 .task-list-section {
@@ -30,9 +27,13 @@
 }
 
 .clear-task {
-  margin: auto;
-  margin-top: 10px;
+  margin-top: 20px;
   margin-left: 45%;
   border-radius: 4px;
   font-family: 'Open Sans';
+}
+
+.clear-task-message {
+  font-family: 'Open Sans';
+  text-align: center;
 }

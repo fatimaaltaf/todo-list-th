@@ -59,7 +59,7 @@ function App() {
       <div className="task-list-section">
         <Form addTask={addTask} />
       </div>
-      <div className="task-list" style={{ display: !Task ? "none" : "block" }}>
+      <div className="task-list">
         <h3 className="tasks-card-title">Tasks</h3>
         {taskList.length ? (
           taskList.map((task, index) => (
@@ -73,7 +73,7 @@ function App() {
             />
           ))
         ) : (
-          <h3>Please add a task</h3>
+          <p className="clear-task-message">Please add a task</p>
         )}
       </div>
       <button className="clear-task" onClick={clearTaskList}>

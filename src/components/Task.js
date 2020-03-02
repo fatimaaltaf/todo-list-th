@@ -28,12 +28,17 @@ function Task(props) {
         className="task-title-desc"
         style={{ textDecoration: task.isCompleted ? "line-through" : "" }}
       >
-        <p>Task: {task.title}</p>
-        <p>Description: {task.description}</p>
+        <p>Task:&nbsp;{task.title}</p>
+        <p>Description:&nbsp;{task.description}</p>
       </div>
-      <p className="task-category">{task.category}</p>
+      <p
+        className="task-category"
+        style={{ display: task.category === "none" ? "none" : "block" }}
+      >
+        {task.category}
+      </p>
       <div className="dueBy">
-        Due By:
+        Due By:&nbsp;
         {moment(task.startDate).format("MMM Do YYYY")}
       </div>
       <div className="complete-delete">

@@ -42,19 +42,20 @@ export default function Form(props) {
       />
       <div className="form-category">
         <label>
-          Pick a category:
+          Pick a category:&nbsp;
           <select
-            category={category}
+            value={category}
             onChange={event => setCategory(event.target.value)}
           >
-            <option category="work">Home</option>
-            <option category="social">School</option>
-            <option category="home">Social</option>
-            <option category="school">Work</option>
+            <option value="work">Home</option>
+            <option value="social">School</option>
+            <option value="home">Social</option>
+            <option value="school">Work</option>
+            <option value="none">None</option>
           </select>
         </label>
       </div>
-      <span>Due By:</span>
+      <span>Due By:&nbsp;</span>
       <DatePicker value={startDate} onChange={date => setStartDate(date)} />
       <button className="add-task" type="submit">
         Add Task

@@ -29,12 +29,10 @@
 }
 
 .task-category {
-    display: block;
     line-height: 25px;
-
+    padding: 2px 20px;
     -moz-border-radius: 30px; /* or 50% */
     border-radius: 30px; /* or 50% */
-
     background-color: lightblue;
     color: black;
     text-align: center;

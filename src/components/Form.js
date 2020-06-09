@@ -11,15 +11,17 @@ export default function Form(props) {
     "Outing",
     "School",
     "Shopping",
-    "Work"
+    "Work",
+    "None",
   ];
+
   const [title, setTitle] = useState(""); //set default title to empty
   const [description, setDescription] = useState(""); //set default desc to empty
   const [startDate, setStartDate] = useState(new Date()); //set default date to today
-  const [category, setCategory] = useState(categoryOptions[0]);
+  const [category, setCategory] = useState(categoryOptions[0]); //set default category to index 0
 
   //Handles form onSubmit
-  const handleSubmit = event => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
     //Error handling
@@ -27,6 +29,7 @@ export default function Form(props) {
       alert("Please fill out Title and Date");
       return;
     }
+
     //call prop
     addTask(title, description, category, startDate);
 
@@ -43,29 +46,29 @@ export default function Form(props) {
         type="text"
         value={title}
         name="Title"
-        onChange={event => setTitle(event.target.value)}
+        onChange={(event) => setTitle(event.target.value)}
       />
       <span>Description:</span>
       <input
         type="text"
         value={description}
         name="Description"
-        onChange={event => setDescription(event.target.value)}
+        onChange={(event) => setDescription(event.target.value)}
       />
       <div className="form-category">
         <label>
           Pick a category:&nbsp;
-          <select onChange={event => setCategory(event.target.value)}>
-            {categoryOptions.map(category => (
+          <select onChange={(event) => setCategory(event.target.value)}>
+            {categoryOptions.map((category) => (
               <option value={category}>{category}</option>
             ))}
             {/* Adding none option */}
-            <option value="">none</option>
+            <option value="">None</option>
           </select>
         </label>
       </div>
       <span>Due By:&nbsp;</span>
-      <DatePicker value={startDate} onChange={date => setStartDate(date)} />
+      <DatePicker value={startDate} onChange={(date) => setStartDate(date)} />
       <button className="add-task" type="submit">
         Add Task
       </button>

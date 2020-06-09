@@ -29,6 +29,7 @@ function Task(props) {
           className="task-title-desc"
           style={{ textDecoration: task.isCompleted ? "line-through" : "" }}
         >
+          {/* */}
           <p>Task:&nbsp;{task.title}</p>
         </div>
         <p style={{ display: !task.description ? "none" : "block" }}>
